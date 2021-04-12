@@ -1,0 +1,17 @@
+{
+  "name": "graphql-community",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "build": "lerna run build",
+    "build:api" : "lerna exec --scrop @graphql-community/api --stream yarn build",
+    "build:web": "lerna exec --scrop @graphql-community/api --stream yarn build",
+    "dev:web": "lerna exec --scrop @graphql-community/web --stream yarn dev",
+    "dev:api": "lerna exec --scrop @graphql-community/api --stream yarn start:dev"
+  },
+  "workspaces": [
+    "packages/**"
+  ]
+}
