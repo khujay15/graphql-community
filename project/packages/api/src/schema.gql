@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateMyInput {
+  name: String!
+  type: String
+}
+
+type Mutation {
+  createMyPage(createMyInput: CreateMyInput!): MyPage!
+}
+
+type MyPage {
+  id: Int!
+  name: String!
+  type: String
+}
+
+type Query {
+  myPage: [MyPage!]!
+}
