@@ -17,6 +17,18 @@ type MyPage {
   type: String
 }
 
+type Post {
+  author: String!
+  category: String!
+  content: String!
+  created_date: String!
+  id: Int!
+  title: String!
+  updated_date: String
+}
+
 type Query {
+  getPost(id: Float!): Post!
+  getPosts: [Post!]!
   myPage: [MyPage!]!
 }

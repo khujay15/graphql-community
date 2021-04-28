@@ -5,6 +5,7 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MypageModule } from './mypage/mypage.module';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -16,10 +17,11 @@ import { MypageModule } from './mypage/mypage.module';
       type: 'sqlite',
       database: 'database.db',
       entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      synchronize: false,
       logging: false,
     }),
     MypageModule,
+    PostModule,
   ],
   controllers: [AppController],
   providers: [AppService],
