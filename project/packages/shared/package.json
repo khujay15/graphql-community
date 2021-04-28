@@ -1,0 +1,13 @@
+{
+  "name": "@graphql-community/shared",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "lodash": "4.17.20"
+  },
+  "license": "MIT"
+}
