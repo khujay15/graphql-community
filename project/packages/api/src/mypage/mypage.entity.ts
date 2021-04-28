@@ -2,7 +2,7 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'my_pagelist' })
 @ObjectType()
 export class MyPage {
   @PrimaryGeneratedColumn()

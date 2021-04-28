@@ -14,9 +14,10 @@ import { MypageModule } from './mypage/mypage.module';
     }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: ':memory:',
+      database: 'database.db',
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
+      logging: false,
     }),
     MypageModule,
   ],
