@@ -2,18 +2,34 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'my_pagelist' })
+@Entity({ name: 'post' })
 @ObjectType()
-export class MyPage {
+export class Post {
   @PrimaryGeneratedColumn()
   @Field((type) => Int)
   id: number;
 
   @Column()
   @Field()
-  name: string;
+  author: string;
+
+  @Column()
+  @Field()
+  created_date: string;
 
   @Column({ nullable: true })
   @Field({ nullable: true })
-  type?: string;
+  updated_date?: string;
+
+  @Column()
+  @Field()
+  title: string;
+
+  @Column()
+  @Field()
+  content: string;
+
+  @Column()
+  @Field()
+  category: string;
 }
