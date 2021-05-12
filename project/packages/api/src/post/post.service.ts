@@ -7,6 +7,7 @@ import {
   UpdatePostInput,
 } from './dto/post.input'
 import { Post } from './model/post.entity'
+import { getCurrentDate } from '../shared/utils'
 
 @Injectable()
 export class PostService {
@@ -26,7 +27,9 @@ export class PostService {
   async findSome(input: Partial<GetPostInput>): Promise<Post[]> {
     return this.postRepository
       .createQueryBuilder('post')
-      .where('post.author like :author', { author: input.author })
+      .where('post.id like :id', { id: input.id })
+      .orWhere('post.author like :author', { author: input.author })
+      .orWhere('post.category like :category', { category: input.category })
       .getMany()
   }
 
@@ -37,28 +40,14 @@ export class PostService {
     await queryRunner.startTransaction()
 
     try {
-      result = await queryRunner.manager.save(this.postRepository.create(input))
-      await queryRunner.commitTransaction()
-    } catch (err) {
-      await queryRunner.rollbackTransaction()
-      throw err
-    } finally {
-      await queryRunner.release()
-    }
-
-    return result
-  }
-
-  async updateOne(input: UpdatePostInput): Promise<Post> {
-    let result
-    const queryRunner: QueryRunner = this.connection.createQueryRunner()
-    await queryRunner.connect()
-    await queryRunner.startTransaction()
-
-    try {
-      const before = await this.postRepository.findOne(input.id)
-
-      result = await queryRunner.manager.save(this.postRepository.create(input))
+      const newInput = {
+        ...input,
+        created_date: getCurrentDate(),
+        author: 'test',
+      }
+      result = await queryRunner.manager.save(
+        this.postRepository.create(newInput),
+      )
       await queryRunner.commitTransaction()
     } catch (err) {
       await queryRunner.rollbackTransaction()

@@ -7,8 +7,21 @@ input CreateMyInput {
   type: String
 }
 
+input CreatePostInput {
+  category: String!
+  content: String!
+  title: String!
+}
+
+input GetPostInput {
+  author: String
+  category: String
+  id: Float
+}
+
 type Mutation {
   createMyPage(createMyInput: CreateMyInput!): MyPage!
+  createPost(input: CreatePostInput!): Post!
 }
 
 type MyPage {
@@ -28,7 +41,8 @@ type Post {
 }
 
 type Query {
+  getAllPosts: [Post!]!
   getPost(id: Float!): Post!
-  getPosts: [Post!]!
+  getSomePosts(input: GetPostInput!): [Post!]!
   myPage: [MyPage!]!
 }
