@@ -1,15 +1,15 @@
-import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { join } from 'path';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { MypageModule } from './mypage/mypage.module';
-import { PostModule } from './post/post.module';
-import { CommentModule } from './comment/comment.module';
-import { UserModule } from './user/user.module';
-import { LikeableService } from './likeable/likeable.service';
-import { LikeableModule } from './likeable/likeable.module';
+import { Module } from '@nestjs/common'
+import { GraphQLModule } from '@nestjs/graphql'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { join } from 'path'
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
+import { MypageModule } from './mypage/mypage.module'
+import { PostModule } from './post/post.module'
+import { CommentModule } from './comment/comment.module'
+import { UserModule } from './user/user.module'
+import { LikeableService } from './likeable/likeable.service'
+import { LikeableModule } from './likeable/likeable.module'
 
 @Module({
   imports: [

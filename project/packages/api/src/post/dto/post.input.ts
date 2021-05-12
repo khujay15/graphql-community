@@ -1,7 +1,7 @@
-import { Field, InputType } from '@nestjs/graphql';
-import { Entity } from 'typeorm';
+import { Field, InputType, PartialType, PickType } from '@nestjs/graphql';
+import { IsNumber } from 'class-validator';
+import { Post } from '../model/post.entity';
 
-@Entity()
 @InputType()
 export class GetPostInput {
   @Field()
@@ -12,4 +12,18 @@ export class GetPostInput {
 
   @Field({ nullable: true })
   category?: string;
+}
+
+@InputType()
+export class CreatePostInput extends PickType(
+  Post,
+  ['category', 'content', 'title'],
+  InputType,
+) {}
+
+@InputType()
+export class UpdatePostInput extends PartialType(CreatePostInput) {
+  @Field()
+  @IsNumber()
+  id: number;
 }
