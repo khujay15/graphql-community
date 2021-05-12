@@ -6,6 +6,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MypageModule } from './mypage/mypage.module';
 import { PostModule } from './post/post.module';
+import { CommentModule } from './comment/comment.module';
+import { UserModule } from './user/user.module';
+import { LikeableService } from './likeable/likeable.service';
+import { LikeableModule } from './likeable/likeable.module';
 
 @Module({
   imports: [
@@ -22,8 +26,11 @@ import { PostModule } from './post/post.module';
     }),
     MypageModule,
     PostModule,
+    CommentModule,
+    UserModule,
+    LikeableModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, LikeableService],
 })
 export class AppModule {}
