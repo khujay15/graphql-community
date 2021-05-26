@@ -1,10 +1,10 @@
 {
   "name": "@graphql-community/shared",
   "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
+    "build": "rimraf dist && tsc --build",
     "typegen" : "graphql-codegen --config codegen.yml"
   },
   "dependencies": {

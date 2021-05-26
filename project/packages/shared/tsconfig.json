@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "esModuleInterop": true,
+      "isolatedModules": true,
+      "jsx": "preserve",
+      "lib": ["dom", "es2017"],
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noFallthroughCasesInSwitch": true,
+      "declaration": true,
+      "resolveJsonModule": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "es2017",
+      "outDir" : "./dist",
+      "rootDir": "./src"
+    },
+    "exclude": ["node_modules"],
+    "include": ["**/*.ts", "**/*.tsx"]
+  }
+  

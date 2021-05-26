@@ -2,9 +2,9 @@ overwrite: true
 require:
   - ts-node/register
 generates:
-  ./types/api-generated-types.ts:
+  ./src/types/api-generated-types.ts:
     schema: "src/graphql/api/api.graphql"
-    # documents: "src/graphql/api/**/*.graphql"
+    # documents: "src/graphql/api/*.graphql"
     plugins:
       - "typescript"
       # - 'fragment-matcher'
