@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Comment {
+  author: String!
+  content: String!
+  created_date: String!
+  id: Int!
+  parent: Int!
+  post_id: Int!
+  updated_date: String
+}
+
+input CreateCommentInput {
+  content: String!
+  parent: Float
+  post_id: Int!
+}
+
+input CreateLikeableInput {
+  like_dislike: Int!
+  likeable_id: Int!
+  likeable_type: String!
+}
+
+input CreateMyInput {
+  name: String!
+  type: String
+}
+
+input CreatePostInput {
+  category: String!
+  content: String!
+  title: String!
+}
+
+input GetCommentInput {
+  author: String
+  parent: String
+  post_id: Float
+}
+
+input GetLikeableInput {
+  likeable_id: Float
+  likeable_type: String!
+  user_id: String
+}
+
+input GetPostInput {
+  author: String
+  category: String
+  id: Float
+}
+
+type Likeable {
+  created_date: String!
+  id: Int!
+  like_dislike: Int!
+  likeable_id: Int!
+  likeable_type: String!
+  user_id: String!
+}
+
+type Mutation {
+  createComment(input: CreateCommentInput!): Comment!
+  createLikeable(input: CreateLikeableInput!): Likeable!
+  createMyPage(createMyInput: CreateMyInput!): MyPage!
+  createPost(input: CreatePostInput!): Post!
+}
+
+type MyPage {
+  id: Int!
+  name: String!
+  type: String
+}
+
+type Post {
+  author: String!
+  category: String!
+  content: String!
+  created_date: String!
+  id: Int!
+  title: String!
+  updated_date: String
+}
+
+type Query {
+  getAllComments: [Comment!]!
+  getAllLikes: [Likeable!]!
+  getAllPosts: [Post!]!
+  getComment(id: Float!): Comment!
+  getLikeable(id: Float!): Likeable!
+  getPost(id: Float!): Post!
+  getSomeComments(input: GetCommentInput!): [Comment!]!
+  getSomePosts(input: GetPostInput!): [Post!]!
+  getTotalLikes(input: GetLikeableInput!): Float!
+  myPage: [MyPage!]!
+}

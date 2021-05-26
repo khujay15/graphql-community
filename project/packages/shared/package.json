@@ -4,10 +4,19 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typegen" : "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "lodash": "4.17.20"
+    "lodash": "4.17.20",
+    "typescript": "^4.2.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.21.5",
+    "@graphql-codegen/fragment-matcher": "^2.0.1",
+    "@graphql-codegen/typescript": "^1.22.1",
+    "@graphql-codegen/typescript-operations": "^1.18.0",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.5"
+  }
 }

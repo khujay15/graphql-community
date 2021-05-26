@@ -1,0 +1,14 @@
+overwrite: true
+require:
+  - ts-node/register
+generates:
+  ./types/api-generated-types.ts:
+    schema: "src/graphql/api/api.graphql"
+    # documents: "src/graphql/api/**/*.graphql"
+    plugins:
+      - "typescript"
+      # - 'fragment-matcher'
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      namingConvention: keep
