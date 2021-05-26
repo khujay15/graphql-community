@@ -8,7 +8,6 @@ import { MypageModule } from './mypage/mypage.module'
 import { PostModule } from './post/post.module'
 import { CommentModule } from './comment/comment.module'
 import { UserModule } from './user/user.module'
-import { LikeableService } from './likeable/likeable.service'
 import { LikeableModule } from './likeable/likeable.module'
 
 @Module({
@@ -31,6 +30,6 @@ import { LikeableModule } from './likeable/likeable.module'
     LikeableModule,
   ],
   controllers: [AppController],
-  providers: [AppService, LikeableService],
+  providers: [AppService],
 })
 export class AppModule {}

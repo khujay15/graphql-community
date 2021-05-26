@@ -8,6 +8,7 @@ import {
 } from './dto/post.input'
 import { Post } from './model/post.entity'
 import { getCurrentDate } from '../shared/utils'
+import { MASTER_TEST } from 'src/shared/const'
 
 @Injectable()
 export class PostService {
@@ -43,7 +44,7 @@ export class PostService {
       const newInput = {
         ...input,
         created_date: getCurrentDate(),
-        author: 'test',
+        author: MASTER_TEST,
       }
       result = await queryRunner.manager.save(
         this.postRepository.create(newInput),
