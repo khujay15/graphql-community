@@ -1,5 +1,6 @@
 import { GetPostInput, Post } from "@graphql-community/shared";
 import { useQuery, gql } from "@apollo/client";
+import { message } from "antd";
 
 const GET_SOME_POST_QUERY = gql`
   query GetSomePosts($getSomePostInput: GetPostInput!) {
@@ -25,7 +26,7 @@ const Index = () => {
 
   return (
     <>
-      <div>index </div>
+      <div onClick={() => message.success("hi")}>index </div>
       <div>{data?.getSomePosts[0].author}</div>
       <div>{data?.getSomePosts[0].category}</div>
     </>
