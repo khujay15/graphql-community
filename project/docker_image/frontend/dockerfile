@@ -8,14 +8,12 @@ RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
-RUN node --version
-RUN npm --version
-RUN npm install -g yarn
 RUN apt-get install -y git
-RUN mkdir /app
-RUN git clone http://khuhub.khu.ac.kr/2021-1-capstone-design2/2015104215 /app
-RUN cd /app/project;yarn install
-RUN cd /app/project;yarn build:web
+RUN npm install -g yarn
+RUN mkdir /web
+RUN git clone --depth=1 http://khuhub.khu.ac.kr/2021-1-capstone-design2/2015104215/ /web
+RUN cd /web/project;yarn install
 EXPOSE 3000
-WORKDIR /app/project
-CMD [ "yarn", "start:web" ]
+RUN cd /web/project;yarn build:web
+WORKDIR /web/project
+# CMD [ "yarn", "start:web" ]

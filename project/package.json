@@ -7,7 +7,7 @@
   "scripts": {
     "build": "lerna run build",
     "build:api" : "lerna exec --scope @graphql-community/api --stream yarn build",
-    "build:web": "lerna exec --scope @graphql-community/api --stream yarn build",
+    "build:web": "lerna exec --scope @graphql-community/web --stream yarn build",
     "dev:web": "lerna exec --scope @graphql-community/web --stream yarn dev",
     "dev:api": "lerna exec --scope @graphql-community/api --stream yarn start:dev",
     "start:web": "lerna exec --scope @graphql-community/web --stream yarn start",
