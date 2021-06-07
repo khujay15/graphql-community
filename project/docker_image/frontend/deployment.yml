@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: khujay15/next-docker-test
+          image: khujay15/next-docker-test:latest
           ports:
           - containerPort: 3000
             name: frontend

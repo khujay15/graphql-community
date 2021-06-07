@@ -11,7 +11,7 @@ ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 RUN apt-get install -y git
 RUN npm install -g yarn
 RUN mkdir /web
-RUN git clone --depth=1 http://khuhub.khu.ac.kr/2021-1-capstone-design2/2015104215/ /web
+RUN git clone -b kubeTest --single-branch --depth=1 http://khuhub.khu.ac.kr/2021-1-capstone-design2/2015104215/ /web
 RUN cd /web/project;yarn install
 EXPOSE 3000
 RUN cd /web/project;yarn build:web
