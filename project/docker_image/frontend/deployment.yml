@@ -4,7 +4,7 @@ metadata:
   name: frontend
   labels:
     app: frontend
-    tier: frontend
+    name: frontend
 spec:
   selector:
     matchLabels:
