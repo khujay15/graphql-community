@@ -20,4 +20,7 @@ module.exports = {
 
     return config
   },
+  publicRuntimeConfig: {
+    BACKEND_HOST: process.env.BACKEND_HOST,
+  }
 }

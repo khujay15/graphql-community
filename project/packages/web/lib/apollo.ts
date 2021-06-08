@@ -2,8 +2,10 @@ import { useMemo } from "react";
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { concatPagination } from "@apollo/client/utilities";
 import merge from "deepmerge";
-
 export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
 
 let apolloClient: any;
 
@@ -11,7 +13,7 @@ function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: new HttpLink({
-      uri: "http://localhost:5000/graphql", // Server URL (must be absolute)
+      uri: publicRuntimeConfig.BACKEND_HOST ?? "http://localhost:5000/graphql", // Server URL (must be absolute)
       credentials: "same-origin", // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache({
