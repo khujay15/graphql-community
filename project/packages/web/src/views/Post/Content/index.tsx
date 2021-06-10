@@ -3,9 +3,7 @@ import { Card, Descriptions } from 'antd';
 import moment from 'moment';
 
 export default function Content({
-  id,
   author,
-  category,
   created_date,
   title,
   content,

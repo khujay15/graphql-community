@@ -9,7 +9,7 @@ export default function ArticlePage() {
   const { query } = useRouter();
 
   if (!query.num) {
-    return null; // or redirect 404 ?
+    return <div>error!</div>
   }
 
   const { error, data } = useQuery(GET_POST_WITH_COMMENTS, {
