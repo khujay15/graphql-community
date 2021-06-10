@@ -18,7 +18,19 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "target": "esnext",
-    "strict": false
+    "strict": false,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@config/*": ["src/config/*"],
+      "@constants/*": ["src/constants/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@gql/*": ["src/gql/*"],
+      "@views/*": ["src/views/*"],
+      "@shared/*": ["src/shared/*"]
+    }
   },
   "exclude": [
     "node_modules"

@@ -28,7 +28,7 @@ export class PostService {
   async findSome(input: Partial<GetPostInput>): Promise<Post[]> {
     return this.postRepository
       .createQueryBuilder('post')
-      .where('post.id like :id', { id: input.id })
+      .orWhere('post.id = :id', { id: input.id })
       .orWhere('post.author like :author', { author: input.author })
       .orWhere('post.category like :category', { category: input.category })
       .getMany()

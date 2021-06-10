@@ -1,36 +1,21 @@
-import { GetPostInput, Post } from "@graphql-community/shared";
-import { useQuery, gql } from "@apollo/client";
-import { message } from "antd";
+import { useQuery } from '@apollo/client';
 
-const GET_SOME_POST_QUERY = gql`
-  query GetSomePosts($getSomePostInput: GetPostInput!) {
-    getSomePosts(input: $getSomePostInput) {
-      author
-      category
-    }
-  }
-`;
+import { GET_ALL_POSTS } from '@src/gql/get-all-posts';
 
-const Index = () => {
-  const { data, error } = useQuery<
-    { getSomePosts: Post[] },
-    { getSomePostInput: GetPostInput }
-  >(GET_SOME_POST_QUERY, {
-    variables: {
-      getSomePostInput: {
-        id: 1,
-      },
-    },
-  });
+import Main from '@views/Main';
+
+export default function IndexPage() {
+  const { error, data } = useQuery(GET_ALL_POSTS);
   if (error) console.log(JSON.stringify(error, null, 2));
 
-  return (
-    <>
-      <div onClick={() => message.success("hi")}>index </div>
-      <div>{data?.getSomePosts[0].author}</div>
-      <div>{data?.getSomePosts[0].category}</div>
-    </>
-  );
-};
+  let categories = [];
+  let getAllPosts = data?.getAllPosts || [];
 
-export default Index;
+  getAllPosts.forEach((post) => {
+    if (!categories.find((category) => post.category === category)) {
+      categories.push(post.category);
+    }
+  });
+
+  return <Main categories={categories} posts={getAllPosts} />;
+}
