@@ -8,16 +8,19 @@ metadata:
 spec:
   selector:
     matchLabels:
+      name: frontend
       app: frontend
   replicas: 1
   template:
     metadata:
+      name: frontend
       labels:
+        name: frontend
         app: frontend
     spec:
       containers:
         - name: frontend
-          image: khujay15/next-docker-test:latest
+          image: khujay15/docker-next-test:0.5
           ports:
           - containerPort: 3000
             name: frontend

@@ -4,15 +4,19 @@ metadata:
   name: backend
   labels:
     app: backend
+    name: backend
 spec:
   selector:
     matchLabels:
+      name: backend
       app: backend
   replicas: 1
   template:
     metadata:
+      name: backend
       labels:
         app: backend
+        name: backend
     spec:
       containers:
         - name: backend

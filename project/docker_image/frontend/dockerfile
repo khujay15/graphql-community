@@ -11,9 +11,9 @@ ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
 RUN apt-get install -y git
 RUN npm install -g yarn
 RUN mkdir /web
-RUN git clone --depth=1 http://khuhub.khu.ac.kr/2021-1-capstone-design2/2015104215/ /web
+RUN git clone --single-branch --depth=2 http://khuhub.khu.ac.kr/2021-1-capstone-design2/2015104215/ /web
 RUN cd /web/project;yarn install
 EXPOSE 3000
-RUN cd /web/project;yarn build:web
+RUN cd /web/project;BACKEND_HOST=http://a2959ec84b48140a59b5eb13b8e36958-58d1454b1c79b5cc.elb.ap-northeast-2.amazonaws.com:5000/graphql yarn build:web
 WORKDIR /web/project
-CMD [ "yarn", "start:web" ]
+CMD ["yarn", "start:web" ]
