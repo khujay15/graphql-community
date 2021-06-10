@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: khujay15/nest-docker-test
+          image: khujay15/backend:1.1
           ports:
           - containerPort: 5000
             name: backend
