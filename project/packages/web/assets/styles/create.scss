@@ -1,0 +1,30 @@
+@import './shared.scss';
+
+.create-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+
+  .form-container {
+    border-radius: $border_radius;
+    background-color: white;
+    padding: 24px;
+
+    form {
+      height: 100%;
+
+      .form-button {
+        float: right;
+
+        &.cancel-button {
+          margin-right: 8px;
+        }
+      }
+
+      #form-textarea {
+        height: 50vh;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import './shared.scss';
+
+.category-table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+
+  .ant-table {
+    border-radius: $border_radius;
+    overflow: hidden;
+
+    .ant-table-title {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin: 0 4px;
+      @media screen and (max-width: $medium_smart_phone_width) {
+        h2 {
+          font-size: 14px;
+        }
+      }
+    }
+
+    tr {
+      @media screen and (max-width: $small_tablet_width) {
+        .ant-table-cell:nth-child(3) {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: $medium_smart_phone_width) {
+        .ant-table-cell:nth-child(1) {
+          display: none;
+        }
+
+        .ant-table-cell:nth-child(2) {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: $small_smart_phone_width) {
+        .ant-table-cell:nth-child(2) {
+          font-size: 12px;
+        }
+        .ant-table-cell:nth-child(4) {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

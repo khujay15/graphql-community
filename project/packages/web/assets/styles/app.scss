@@ -1,0 +1,56 @@
+@import './shared.scss';
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+#__next {
+  height: 100%;
+  min-width: 236px;
+}
+
+.app-layout {
+  min-height: 100vh;
+  height: auto;
+  display: block;
+}
+
+.app-header {
+  @media screen and (max-width: $medium_tablet_width) {
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+    .ant-menu-submenu-horizontal {
+      float: right;
+    }
+  }
+}
+
+.outer-container {
+  width: 100%;
+  max-width: $window_max_width;
+  min-height: calc(100vh - 64px);
+  padding: 12px 50px;
+  margin: 0 auto;
+
+  overflow-y: scroll;
+
+  @media screen and (max-width: $medium_tablet_width) {
+    padding: 76px 16px 12px 16px;
+    min-height: 100vh;
+  }
+
+  @media screen and (max-width: $small_smart_phone_width) {
+    padding: 10px 8px;
+  }
+}

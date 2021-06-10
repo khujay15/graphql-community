@@ -1,0 +1,36 @@
+@import './shared.scss';
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+
+  height: 100%;
+
+  .post-content {
+    flex: 1;
+    border-radius: $border_radius;
+    margin-bottom: 24px;
+  }
+
+  .post-comments {
+    min-height: $comment_height;
+    border-radius: $border_radius;
+    overflow-y: scroll;
+
+    .post-comments-num {
+      font-size: 14px;
+      color: #888;
+    }
+  }
+}
+
+.comments-textarea {
+  margin-top: 12px;
+}
+
+.comments-submit-button {
+  float: right;
+  margin-top: 8px;
+}
