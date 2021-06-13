@@ -14,6 +14,7 @@ export default function CategoryPage() {
     variables: {
       input: { category: name },
     },
+    fetchPolicy: 'network-only'
   });
 
   if (error) console.log(JSON.stringify(error, null, 2));

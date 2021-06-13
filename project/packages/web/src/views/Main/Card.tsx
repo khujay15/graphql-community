@@ -13,8 +13,8 @@ export default function Card({ category, posts, ...rest }) {
 
   return (
     <CardItem title={category} extra={MoreButton(category)} {...rest}>
-      {sliced.map(({ title, id }) => (
-        <Row key={title} category={category} title={title} id={id} />
+      {sliced.map(({ title, id, content }) => (
+        <Row key={title} category={category} title={title} id={id} content={content} />
       ))}
       {emptyRows.map((_, idx) => (
         <div className={'card-row'} key={idx} />

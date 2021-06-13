@@ -1,11 +1,12 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const GET_ALL_POSTS = gql`
-  query GetAllPosts {
+  query GetAllPosts($skipContent: Boolean! = true) {
     getAllPosts {
       id
       title
       category
+      content @skip(if: $skipContent)
     }
   }
 `;

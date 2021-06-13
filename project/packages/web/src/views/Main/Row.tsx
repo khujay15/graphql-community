@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router';
 import { makeArticleURLWithNumber } from '@src/shared/functions';
+import {  Popover } from 'antd';
 
-export const Row = ({ category, title, id }) => {
+
+export const Row = ({ category, title, id, content}) => {
   const router = useRouter();
   const sliced = title.length > 20 ? title.substr(0, 20) + '...' : title;
 
@@ -11,9 +13,11 @@ export const Row = ({ category, title, id }) => {
   };
 
   return (
-    <div className={'card-row has-content'} onClick={handleClickArticle}>
+    <Popover title={title} content={content} >
+    <div className={'card-row has-content'} onClick={handleClickArticle} >
       <h2 className={'card-row-title'}>{sliced}</h2>
       <span className={'card-row-recomment'}>{'?'}</span>
     </div>
+    </Popover>
   );
 };
